@@ -1,0 +1,558 @@
+/* TODO: починить анимацию стрелки в ie */
+body, html {
+  font: normal 100% 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.5;
+  height: 100%;
+}
+
+.header {
+  height: 100%;
+  background: url(../i/bg_header.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.header--overlay {
+  height: 100%;
+  background: rgba(2,68,148,.7);
+  position: relative;
+}
+
+/* Выравнивание шапки */
+.header-top {
+  display: table;
+  padding: 0 2.5vw;
+  width: 100%;
+  /*background: #ff0000;*/
+}
+
+.header__logo,
+.header__contacts {
+  display: table-cell;
+  vertical-align: middle;
+  height: 12vh; /* 12% от высоты */
+}
+
+.header__contacts {
+  text-align: right;
+  white-space: nowrap;
+  margin-top: 10px;
+}
+
+/* Стили элементов шапки */
+.header__logo__img {
+  height: 36px;
+  width: 112px;
+  background: url(../i/logo.png);
+
+  /* Скрываю текст */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header__contacts__li {
+  display: inline-block;
+  color: #ecf0f1;
+  margin-left: 1rem;
+}
+
+.header__contacts__li__link {
+  color: rgba(236, 240, 241,1);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(236, 240, 241,.4);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color .3s ease;
+}
+
+.header__contacts__li__link:hover {
+  color: rgba(231, 76, 60,1);
+  border-bottom: 1px solid rgba(231, 76, 60,.4);
+  transition: none;
+}
+
+/* Основной текст шапки */
+.header__headline {
+  margin: 12.5vh 0 1vh 0;
+  text-align: center;
+  color: #fff;
+  font-size: 5.85vw;
+  font-weight: 500;
+}
+
+.header__subhead {
+  text-align: center;
+  color: #eee;
+  font-size: 1.85vw;
+  line-height: 1.25;
+}
+
+.header-signup {
+  width: 290px;
+  height: 54px;
+  position: relative;
+  margin: 3vh auto;
+}
+
+.header-signup__button {
+  outline: none;
+  border: none;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  float: left;
+  font-size: 1.125rem;
+  color: #ecf0f1;
+  cursor: pointer;
+  width: 290px;
+  height: 54px;
+  border-radius: 5px;
+  background: rgb(231,76,60);
+  background: linear-gradient(to bottom,  rgba(231,76,60,1) 0%,rgba(193,57,43,1) 100%);
+}
+
+.header-signup__button:hover {
+  background: rgb(231,76,60);
+}
+
+.header-signup__button:active {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+}
+
+
+.header-signup__find {
+  margin-top: 6px;
+  position: absolute;
+  right: -205px;
+}
+
+.header-signup__rectangle {
+  outline: none;
+  border: none;
+  padding: 8px 10px 11px 15px;
+
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  background: rgba(0,0,0,.6);
+  margin-left: 10px;
+  float: left;
+}
+
+.header-signup__rectangle__link {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,.9);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.4);
+  transition: color .3s ease;
+}
+
+.header-signup__rectangle__link:hover {
+  color: rgba(231, 76, 60,1);
+  border-bottom: 1px solid rgba(231, 76, 60,.4);
+  transition: none;
+}
+
+.header-signup__triangle {
+  float: left;
+  width: 0px;
+  border-top: 22px solid transparent;
+  border-left: 45px solid rgba(0,0,0,.6);
+  border-bottom: 22px solid transparent;
+}
+
+.header-signup__text {
+  font-size: 2.5vh;
+  font-weight: 300;
+  color: #ecf0f1;
+}
+
+.header-signup__text__link {
+  color: #ecf0f1;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(236, 240, 241,.4);
+}
+
+/* Выравнивание нижней части первого экрана */
+.header-bottom {
+  height: 12vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.header-bottom:hover {
+  cursor: pointer;
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(51,51,51,0.3) 100%);
+}
+
+.header-bottom__link {
+  position: relative;
+  height: 100%;
+}
+
+.header-bottom__link:hover {
+  /* Анимация */
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: arrow;
+}
+
+/* Стили элементов нижней части первого экрана */
+.header-bottom__link__arrow,
+.header-bottom__link__arrow:before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.header-bottom__link__arrow {
+  transform: rotate(45deg);
+}
+
+.header-bottom__link__arrow:before {
+  content: "";
+  width: 5vh;
+  height: 5vh;
+  top: 50%;
+  margin: -2.5vh 0 0 -2.5vh;
+  border: none;
+  border-right: 1px #ecf0f1 solid;
+  border-bottom: 1px #ecf0f1 solid;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 1;
+    transform: translate(0, -2.5vh);
+  }
+  100% {
+    opacity: .1;
+  }
+}
+
+/* Зачем участвовать */
+.container {
+  max-width: 1300px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.column {
+  float: left;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.column.full { width: 100%; }
+.column.two-thirds { width: 66.7%; }
+.column.half { width: 50%; }
+.column.third { width: 33.3%; }
+.column.fourth { width: 25%; }
+.column.third-fourth { width: 75%; }
+.column.flow-opposite { float: right; }
+.column.hello { width: 60%; }
+
+.reason {
+  width: 100%;
+  background: #fbfbfb;
+  padding: 50px 0 0 0;
+}
+
+.reason__headline {
+  font-size: 30px;
+  font-weight: bold;
+  color: #434358;
+  line-height: 45px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.reason-blocks__headline {
+  color: #434358;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.125rem;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.reason-blocks__paragraph {
+  font-size: 1.125rem;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 26px;
+  color: #434358;
+  font-weight: 400;
+  margin-bottom: 80px;
+}
+
+.place {
+  width: 100%;
+  height: 500px;
+  background: url(../i/place_bg.png) no-repeat center center;
+  margin-bottom: 50px;
+}
+
+.place--overlay {
+  height: 500px;
+  background: rgba(0,0,0,.5);
+}
+
+.place--text {
+  height: 500px;
+  background: rgba(0,0,0,.7);
+  color: rgb(236, 240, 241);
+  padding: 30px 20px;
+}
+
+.place__headline {
+  font-weight: 600;
+}
+
+.place__paragraph {
+  margin-bottom: 25px;
+}
+
+.display-none {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.signup-team {
+  margin-bottom: 95px;
+}
+
+.signup-team--bg {
+  width: 100%;
+  background: url(../i/form_bg.png);
+  padding: 40px 0 50px 0;
+}
+
+.signup-team-form {
+  width: 740px;
+  background: #fff;
+  margin: 0 auto;
+  padding: 55px 0;
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+  border-radius: 3px
+}
+
+.field {
+  clear: both;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.field__label {
+  float: left;
+  padding-right: 25px;
+  font-size: 14px;
+  color: #000;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 31px;
+}
+
+.field__input {
+  width: 307px;
+  height: 31px;
+  border: 1px solid #cecece;
+  border-radius: 3px;
+  box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.15);
+  padding: 0 5px;
+}
+
+.signup-team-form__headline {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.signup-team-form__subhead {
+  margin: 5px 0 5px 153px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+
+.fields {
+  float:left;
+  margin: 0 140px;
+}
+
+.field__button {
+  margin-left: 153px;
+  margin-top: 10px;
+  outline: none;
+  border: none;
+  background: linear-gradient(to bottom, #004d99 0, #0d1e80 100%);
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  padding: 13px 35px;
+}
+
+.social {
+  height: 36px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.social__text {
+  margin-right: 15px;
+}
+
+.social__button {
+  display: inline-block;
+  position: relative;
+  top: -6px;
+}
+
+.footer {
+  border-top: 1px solid #000;
+  padding: 15px 0 45px 0;
+  font-size: 14px;
+}
+
+.footer__sponsors__img {
+  float: left;
+  margin-right: 5px;
+}
+
+.footer__sponsors {
+  line-height: 36px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer__sponsors--padding {
+  padding-left: 135px;
+}
+
+.footer__link {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(41, 128, 185,.4);
+  color: rgba(41, 128, 185,1);
+}
+
+.footer__link:hover {
+  border-bottom-color: rgba(231, 76, 60,.4);
+  color: rgba(231, 76, 60,1);
+}
+
+.rules {
+  margin-bottom: 80px;
+}
+
+.rules__headline {
+  font-size: 30px;
+  font-weight: 500;
+  padding: 14px 0 10px;
+}
+
+.rules__subhead {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.3;
+  padding: 12px 0 5px;
+  color: #000;
+}
+
+.rules__paragraph {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 1px 0 20px;
+}
+
+b {
+  font-weight: 700;
+}
+
+.rules__li {
+  padding: 6px 0;
+}
+
+.rules__li:first-child,
+.rules__li:last-child {
+  padding: 0;
+}
+
+.rules__li__link {
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+}
+
+.home-faq-q_list {
+  overflow: hidden;
+  padding: 0 0 0 10px;
+  border-left: 3px solid #ccc;
+  margin-top: -7px;
+  margin-left: -12px;
+}
+
+.hidden {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.signup-btn {
+  position: fixed;
+  top: 10px;
+  display: none;
+  right: 2.5%;
+  width: 225px;
+}
+
+.signup-btn__button {
+  outline: none;
+  border: none;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  float: left;
+  font-size: 14px;
+  color: #ecf0f1;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: rgb(231,76,60);
+  background: linear-gradient(to bottom,  rgba(231,76,60,1) 0%,rgba(193,57,43,1) 100%);
+  display: block;
+}
+
+.signup-btn__link {
+  display: inline-block;
+  font-size: 14px;
+  color: rgba(41, 128, 185,1);
+  border-bottom: 1px solid rgba(41, 128, 185,.4);
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+#page-preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 100500;
+}
+
+#page-preloader .spinner {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: url('../i/spin.gif') no-repeat 50% 50%;
+  margin: -16px 0 0 -16px;
+}
